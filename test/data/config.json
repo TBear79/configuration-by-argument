@@ -1,0 +1,7 @@
+{
+	"testString": "OK",
+	"testNumber": 100,
+	"testBoolTrue": "true",
+	"testBoolFalse": "false",
+	"testArray": [1, 2, 3]
+}
