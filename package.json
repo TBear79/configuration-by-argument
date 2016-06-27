@@ -1,7 +1,7 @@
 {
   "name": "configuration-by-argument",
   "version": "1.0.1",
-  "description": "Loads a configuration file that you describe in the arguments when starting you application",
+  "description": "Send the path to your JSON configuration file in command line arguments",
   "main": "lib/configuration-by-argument.js",
   "scripts": {
     "test": "mocha test/unit --config test/data/config.json --config2 test/data/config2.json"
