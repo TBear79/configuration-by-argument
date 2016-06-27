@@ -3,5 +3,10 @@
 	"testNumber": 100,
 	"testBoolTrue": "true",
 	"testBoolFalse": "false",
-	"testArray": [1, 2, 3]
+	"testArray": [1, 2, 3],
+	"prop1":{
+		"prop1_1": {
+			"prop1_2": "deeplevel"
+		}
+	}
 }
