@@ -47,7 +47,7 @@ If your file is not in the root of your application, you can give a relative pat
 
 What if you have more than one configuration file?
 
-Well, you can set the name of the parameter that contains a path to you file.
+Well, you can set the name of the parameter that contains a path to your file.
 
 ```
 	node load-config --config1 one.json --configForTesting two.json

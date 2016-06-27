@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/TBear79/configuration-by-argument#readme",
   "dependencies": {
+    "jsonschema": "^1.1.0",
     "minimist": "^1.2.0",
     "util": "^0.10.3"
   },
