@@ -3,23 +3,17 @@
 Send the path to your json-file in command arguments. And yes, it's yet another configuration module.
 
 * Easy and simple to use.
-* Load different configurations for different environments. 
+* Load different configurations based on command arguments. 
 * Load multiple configuration files.
-
+* Validate the config-file using [jsonschema](https://www.npmjs.com/package/jsonschema)
 # Usage
 
-## Always do this:
+## First install the module:
 
 Use [npm](https://www.npmjs.com/) to install the module:
 
 ```
 	npm install configuration-by-argument
-```
-
-Then use `require()` to load it in your code:
-
-```javascript
-	var configurationByArgument = require('configuration-by-argument');
 ```
 
 And now for some programming :-)
@@ -41,7 +35,7 @@ If you have a file named myconfig.json in the root of your directory, and your p
 
 ## File in a sub directory
 
-If you file is not in the root of your application, you can give a relative path to the file as an argument.
+If your file is not in the root of your application, you can give a relative path to the file as an argument.
 
 ```
 	node load-config --config configs/myconfig.json
@@ -69,24 +63,6 @@ Well, you can set the name of the parameter that contains a path to you file.
 	var config2 = cba.get();
 ```
 
-## Just set that configuration... please
-
-If you have loaded a configuration from another source you can load it directly into configuration-by-argument like this.
-
-```javascript
-	var configIn = '{ "myProp": "OK" }';
-			
-	var cba = new configurationByArgument();
-	cba.set(configIn);
-	var config = cba.get();
-```
-
-"Now, why would I do that? It will just return the same object as the one I provided".
-
-True, but if it's a string, you will get it back as an object.
-Okay, weak a point there... You could just use JSON.parse.
-
-BUT it enables you to make use of the "required"-attribute. That's will allow the module to throw an error if a certain property doesn't exist.
 
 ## Options
 
@@ -96,18 +72,36 @@ You can set some options on configuration-by-argument by sending them to the con
 	var cba = new configurationByArgument({}); //send your options in JSON
 ```
 
-### required
+### validationSchemas
 
-Array of strings
+Array of JSON objects OR just a JSON object.
 
 Default: []
 
-Sets the minimum required level for sending the log to RabbitMQ. You can find the levels [here](https://www.npmjs.com/package/winston#logging-levels).
+Send a schema to validate the config-file against. This is done by jsonschema. See documentation [here](https://www.npmjs.com/package/jsonschema).
+When sending an array of schema references, make sure that the base-schema is in position 0.
 
 ### parameterKey
 
+String.
+
+Default: "config"
+
+The name of the config-parameter. If you want to send paths to more thant one config-file, you have to give the others arguments difference names.
+See the example near the top for this.
+
 ### errorHandler
 
+Function.
+
+Override the default error handler by passing your own function in this property.
+
+The default errorhandler looks like this:
+```javascript
+	function(ex) {
+        throw ex;
+    }
+```
 
 # Tests
 
@@ -129,17 +123,15 @@ Then run:
 
 Further documentation the topics according to this module:
 
-* [Winston](https://www.npmjs.com/package/winston)
-* [RabbitMQ](https://www.rabbitmq.com/documentation.html) [Tutorial](https://www.rabbitmq.com/getstarted.html)
-* [amqplib](https://www.npmjs.com/package/amqplib)
-* [rabbit-chatter](https://www.npmjs.com/package/rabbit-chatter)
+* [jsonschema](https://www.npmjs.com/package/jsonschema).
+* Google command line arguments for your environment.
 
 #Keywords
 
 * configuration
 * config
 * command arguments
-
+* command line arguments
 
 # License
 
