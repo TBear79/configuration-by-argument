@@ -1,6 +1,6 @@
 {
   "name": "configuration-by-argument",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Loads a configuration file that you describe in the arguments when starting you application",
   "main": "lib/configuration-by-argument.js",
   "scripts": {
