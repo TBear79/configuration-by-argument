@@ -6,6 +6,7 @@ Send the path to your json-file in command arguments. And yes, it's yet another 
 * Load different configurations based on command arguments. 
 * Load multiple configuration files.
 * Validate the config-file using [jsonschema](https://www.npmjs.com/package/jsonschema)
+
 # Usage
 
 ## First install the module:
